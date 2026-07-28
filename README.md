@@ -1,6 +1,8 @@
 # INSTRUCTIONS for BLSYS
 
 * Step 1: Defining Variables
+
+
 Variables are basically just things that hold a value, this value can be a number, some text, or even a
 boolean (A boolean is "true" or "false")
 
@@ -27,6 +29,8 @@ put blsys there.) A good way to remember blsys is because bl is short for Bluez,
 
 
 * Step 2: Displaying Messages
+
+  
 To display a message, we need to use the command DisplayMessage. Here is a quick example:
 
 `DisplayMessage("Hi!")`
@@ -46,6 +50,8 @@ There are a few changes when tryinig to display a variable, you write blsys and 
 then you put the variable name in quotation marks.
 
 * Step 3: If & While Statements:
+
+  
 Let's say you only wanted to trigger some code if a certain condition was met. That is possible in blsys!
 Here's a quick example:
 
@@ -75,6 +81,8 @@ While statements work almost the exact same as if statements, except they don't 
 keep looping. The only difference is that you put blsysWhile instead of blsysIf.
 
 * Step 4: Additional Information:
+
+  
 Let's go back to step 1, you can do `var("x", 5, blsys)`, but then you could do something like this:
 
 `var("y", blsys[x]+7, blsys)`
