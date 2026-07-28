@@ -1,4 +1,4 @@
-# INSTRUCTIONS for BLSYS
+#INSTRUCTIONS for BLSYS
 
 * Step 1: Defining Variables
 
@@ -7,7 +7,7 @@ Variables are basically just things that hold a value, this value can be a numbe
 boolean (A boolean is "true" or "false")
 
 Here's how we define a variable:
-var("x", 1, blsys)
+`var("x", 1, blsys)`
 
 Let's break that down!
 var is short for var, the var command is always lowercase and also has brackets right after it.
@@ -30,7 +30,7 @@ put blsys there.) A good way to remember blsys is because bl is short for Bluez,
 
 * Step 2: Displaying Messages
 
-  
+
 To display a message, we need to use the command DisplayMessage. Here is a quick example:
 
 `DisplayMessage("Hi!")`
@@ -74,15 +74,29 @@ If statements work like this: First, you put blsysIf, and then put brackets.
 Then, at the start of the brackets, put the variable name in quotes. Put a comma afterwards and then you put
 more quotes, These 2nd quotes are the operator, so == basically just means =, > is greater than, >= is greater
 than or equal, and so on. Then you put another comma, and put the number it is compared against.
-You can also put blsys["variableName"] in the number part to compare your variable against another variable.
+You can also put `blsys["variableName"]` in the number part to compare your variable against another variable.
 Then, put one more comma, and then put square brackets, and put all your step functions in it.
 
 While statements work almost the exact same as if statements, except they don't just trigger once, they
 keep looping. The only difference is that you put blsysWhile instead of blsysIf.
 
-* Step 4: Additional Information:
+* Step 4: Input Variables
 
-  
+
+Input Variables are just variables, except the user types what it should hold. Let's look at a quick example:
+
+`InputVar("x", "Type a number: ", int, blsys)`
+
+Let's break that down! It starts with InputVar and then brackets. Inside the brackets put quotes and put the
+variable name. Then put a comma, and put more quotes. Inside those quotes put the text it should tell the
+user when asking for the value. (I always recommend adding a space at the end of the text or else their
+input will look like it's colliding with the text you put.) Then, put another comma, and then either type
+int or str. int (Integer) means a number, while str (String) means text. Then put another comma, and just like
+the normal variable command, you need to tell it to store this variable into blsys by simply writing blsys.
+
+* Step 5: Additional Information:
+
+
 Let's go back to step 1, you can do `var("x", 5, blsys)`, but then you could do something like this:
 
 `var("y", blsys[x]+7, blsys)`
@@ -92,8 +106,8 @@ And that would define a variable called y and set it to x+7, so 12.
 
 And now lastly, here is some example code for you to refer to:
 
-`var("x", 5, blsys)
-var("z", 11, blsys)`
+`var("x", 5, blsys)`
+`InputVar("z", 11, int, blsys)`
 
 `def step1(): var("z", blsys["z"] + blsys["x"], blsys) `
 
@@ -102,8 +116,8 @@ var("z", 11, blsys)`
 `blsysWhile("z", ">=", 10, [step1, step2])`
 
 That example code will keep adding z and y together, and displaying the result, until the result gets past
-999999999999.
+#999999999999.
 
-Also, don't actually put a # before every line of code, that is just used to put a comment so that none of these
-instructions register as code. And you can also put empty lines between lines to categorize your code into
-sections, but that's not required.
+#Also, don't actually put a # before every line of code, that is just used to put a comment so that none of these
+#instructions register as code. And you can also put empty lines between lines to categorize your code into
+#sections, but that's not required.
