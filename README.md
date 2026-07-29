@@ -116,8 +116,8 @@ And now lastly, here is some example code for you to refer to:
 `blsysWhile("z", ">=", 10, [step1, step2])`
 
 That example code will keep adding z and y together, and displaying the result, until the result gets past
-#999999999999.
+999999999999.
 
-#Also, don't actually put a # before every line of code, that is just used to put a comment so that none of these
-#instructions register as code. And you can also put empty lines between lines to categorize your code into
-#sections, but that's not required.
+Also, don't actually put a # before every line of code, that is just used to put a comment so that none of these
+instructions register as code. And you can also put empty lines between lines to categorize your code into
+sections, but that's not required.
