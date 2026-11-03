@@ -1,4 +1,4 @@
-#INSTRUCTIONS for BLSYS
+# INSTRUCTIONS for BLSYS
 
 * Step 1: Defining Variables
 
@@ -39,8 +39,10 @@ You just write DisplayMessage, then you put brackets, and then, like last time, 
 But if its text, then put it in quotation marks. But there is also a way to display a variable, here is an
 example:
 
-`var("exampleVariable", 395, blsys)
-DisplayMessage(blsys["exampleVariable"])`
+```
+var("exampleVariable", 395, blsys)
+DisplayMessage(blsys["exampleVariable"])
+```
 
 (this example would display 395.)
 
@@ -55,9 +57,11 @@ then you put the variable name in quotation marks.
 Let's say you only wanted to trigger some code if a certain condition was met. That is possible in blsys!
 Here's a quick example:
 
-`var("x", 5, blsys)
+```
+var("x", 5, blsys)
 def step1(): DisplayMessage(blsys["x"])
-blsysIf("x", "==", 5, [step1])`
+blsysIf("x", "==", 5, [step1])
+```
 
 Let's break that down!
 The first line is defining a varriable called x and setting it to 5.
@@ -104,10 +108,11 @@ Let's go back to step 1, you can do `var("x", 5, blsys)`, but then you could do 
 And that would define a variable called y and set it to x+7, so 12.
 
 Then there is the `wait` command, you simply type `wait(Number of seconds goes here)`, and it will wait that long. Here is an example:
-
-`DisplayMessage("Test!")`
-`wait(1)`
-`DisplayMessage(1 second has passed!)`
+```
+DisplayMessage("Test!")
+wait(1)`
+DisplayMessage(1 second has passed!)
+```
 
 * Step 6: Variable Conversion
 
@@ -116,11 +121,12 @@ BLSYS allows you to convert variables into 4 different types, here is how:
 
 First you put one of these four:
 
-`ToInt()`
-`ToStr()`
-`ToFlt()`
-`ToBool()`
-
+```
+ToInt()
+ToStr()
+ToFlt()
+ToBool()
+```
 Then, you put the name of your variable in quotes, like this:
 
 `ToStr("x")`
@@ -128,19 +134,20 @@ Then, you put the name of your variable in quotes, like this:
 That is basically all there is to know about BLSYS Version 1.1,
 And now lastly, here is some example code for you to refer to:
 
-`def beginCalculator():`
-`    InputVar("first_number", "First Number: ", int, blsys)`
-`    InputVar("operator", "Operator: ", str, blsys)`
-`    InputVar("second_number", "Second Number: ", int, blsys)`
-`    blsysIf("operator", "==", "+", [plusCalc])`
-`    blsysIf("operator", "==", "-", [minusCalc])`
-`    blsysIf("operator", "==", "*", [multiplyCalc])`
-`    blsysIf("operator", "==", "/", [divideCalc])`
+```
+def beginCalculator():
+    InputVar("first_number", "First Number: ", int, blsys)
+    InputVar("operator", "Operator: ", str, blsys)
+    InputVar("second_number", "Second Number: ", int, blsys)
+    blsysIf("operator", "==", "+", [plusCalc])
+    blsysIf("operator", "==", "-", [minusCalc])
+    blsysIf("operator", "==", "*", [multiplyCalc])
+    blsysIf("operator", "==", "/", [divideCalc])
 
-`var("1", 1, blsys)`
-`blsysWhile("1", "==", 1, [beginCalculator])`
+var("1", 1, blsys)
+blsysWhile("1", "==", 1, [beginCalculator])
+```
 
-That example code will keep adding z and y together, and displaying the result, until the result gets past
-999999999999.
+That example code will work as a calculator.
 
 
