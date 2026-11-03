@@ -1,4 +1,5 @@
 #Python
+import time
 
 level = 0
 levelreq = 0
@@ -67,27 +68,35 @@ def blsysWhile(var_name, operator, value, actions):
             
     exit_block()
 
-def wait(time):
-    pass
+def wait(amount):
+    time.sleep(amount)
 
+def ToInt(var_name):
+    blsys[var_name] = int(blsys[var_name])
 
+def ToStr(var_name):
+    blsys[var_name] = str(blsys[var_name])
 
+def ToFlt(var_name):
+    blsys[var_name] = float(blsys[var_name])
+
+def ToBool(var_name):
+    blsys[var_name] = bool(blsys[var_name])
 
 #BLSYS
+def plusCalc(): DisplayMessage(blsys["first_number"] + blsys["second_number"])
+def minusCalc(): DisplayMessage(blsys["first_number"] - blsys["second_number"])
+def multiplyCalc(): DisplayMessage(blsys["first_number"] * blsys["second_number"])
+def divideCalc(): DisplayMessage(blsys["first_number"] / blsys["second_number"])
 
-def plusCalc(): DisplayMessage(blsys["firstNumber"] + blsys["secondNumber"])
-def minusCalc(): DisplayMessage(blsys["firstNumber"] - blsys["secondNumber"])
-def multCalc(): DisplayMessage(blsys["firstNumber"] * blsys["secondNumber"])
-def divideCalc(): DisplayMessage(blsys["firstNumber"] / blsys["secondNumber"])
+def beginCalculator():
+    InputVar("first_number", "First Number: ", int, blsys)
+    InputVar("operator", "Operator: ", str, blsys)
+    InputVar("second_number", "Second Number: ", int, blsys)
+    blsysIf("operator", "==", "+", [plusCalc])
+    blsysIf("operator", "==", "-", [minusCalc])
+    blsysIf("operator", "==", "*", [multiplyCalc])
+    blsysIf("operator", "==", "/", [divideCalc])
 
-InputVar("firstNumber", "First Number: ", int, blsys)
-InputVar("operator", "+, -, X, or /: ", str, blsys)
-InputVar("secondNumber", "Second Number: ", int, blsys)
-
-blsysIf("operator", "==", "+", [plusCalc])
-blsysIf("operator", "==", "-", [minusCalc])
-blsysIf("operator", "==", "X", [multCalc])
-blsysIf("operator", "==", "/", [divideCalc])
-
-
-
+var("1", 1, blsys)
+blsysWhile("1", "==", 1, [beginCalculator])
