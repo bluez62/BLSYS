@@ -1,5 +1,9 @@
 # INSTRUCTIONS for BLSYS
 
+BLSYS is a random programming language that I made with the goal of making a programming language that is very bad.
+
+The name BLSYS basically just is 2 words combined: "_Bluez_" and "_System_", as "_Bluez_" is my username.
+
 * Step 1: Defining Variables
 
 
