@@ -103,21 +103,44 @@ Let's go back to step 1, you can do `var("x", 5, blsys)`, but then you could do 
 
 And that would define a variable called y and set it to x+7, so 12.
 
+Then there is the `wait` command, you simply type `wait(Number of seconds goes here)`, and it will wait that long. Here is an example:
 
+`DisplayMessage("Test!")`
+`wait(1)`
+`DisplayMessage(1 second has passed!)`
+
+* Step 6: Variable Conversion
+
+
+BLSYS allows you to convert variables into 4 different types, here is how:
+
+First you put one of these four:
+
+`ToInt()`
+`ToStr()`
+`ToFlt()`
+`ToBool()`
+
+Then, you put the name of your variable in quotes, like this:
+
+`ToStr("x")`
+
+That is basically all there is to know about BLSYS Version 1.1,
 And now lastly, here is some example code for you to refer to:
 
-`var("x", 5, blsys)`
-`InputVar("z", 11, int, blsys)`
+`def beginCalculator():`
+`    InputVar("first_number", "First Number: ", int, blsys)`
+`    InputVar("operator", "Operator: ", str, blsys)`
+`    InputVar("second_number", "Second Number: ", int, blsys)`
+`    blsysIf("operator", "==", "+", [plusCalc])`
+`    blsysIf("operator", "==", "-", [minusCalc])`
+`    blsysIf("operator", "==", "*", [multiplyCalc])`
+`    blsysIf("operator", "==", "/", [divideCalc])`
 
-`def step1(): var("z", blsys["z"] + blsys["x"], blsys) `
-
-`def step2(): DisplayMessage(f"Z Value: {blsys['z']}")`
-
-`blsysWhile("z", ">=", 10, [step1, step2])`
+`var("1", 1, blsys)`
+`blsysWhile("1", "==", 1, [beginCalculator])`
 
 That example code will keep adding z and y together, and displaying the result, until the result gets past
 999999999999.
 
-Also, don't actually put a # before every line of code, that is just used to put a comment so that none of these
-instructions register as code. And you can also put empty lines between lines to categorize your code into
-sections, but that's not required.
+
